@@ -1,0 +1,13 @@
+
+--- Page 1 | 2063 | General ---
+🔸 ORG: Call Center
+🔸 ORG: Discharge
+🔸 ORG: Final
+🔸 ORG: People's Insurance
+🔸 ORG: the financial institute
+🔸 PERSON: Request
+
+Text:
+IN THE EVENT OF AN ACCIDENT, HOW TO SUBMIT A MOTOR INSURANCE CLAIM: Do not panic. Our 24 hour helpline is here to help you. Call us on 011-2206306 Please follow the given instructions: Report the incident to the nearest police station, as required by the law. If any claim is made by a third party, refer the same to us without making any commitment. If the call center instructs you to take the vehicle to a repairer, please do so at your convenience. Get an estimate of the repairs and call us on 011-2206306, our assessor will value the loss. Proceed with the repairs subsequent to our approval. If further damages are observed after dismantling, get a supplementary estimate and inform us. Inform us when repairs are completed. Our Call Center will advise you regarding the after-repair inspection and handing over the salvages. Submit final bills along with relevant documents for payment and a copy of the police statement if requested. If it is considered a "total loss" we will advice how to proceed. Following documents (completed and signed) are required to process the claim: 01 Claim form| 02 Discharge receipt | 03 Letter of indemnity | 04 Letter of subrogation (If applicable) | 05 Final bills | As Required below may be needed: 01 Copy of Driving License 02 Tax Invoice (in People's Insurance name) 03 Request letter for an advance payment. 04 A copy of the police entry statement. 05 If the vehicle is under a financial agreement, a letter from the financial institute that they have no objection to pay the claim directly to you. 06 Request letter to make the payment to the repairer.
+
+----------------------------------------
