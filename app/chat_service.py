@@ -49,7 +49,7 @@ class ChatService:
 
             # Step 1: Retrieve context using hybrid search
             try:
-                results = vector_store.hybrid_search(question, k=6)
+                results = vector_store.hybrid_search(question, k=1)
                 context = "\n\n".join(
                     f"{i+1}. {doc.page_content}" for i, (doc, _) in enumerate(results)
                 )
