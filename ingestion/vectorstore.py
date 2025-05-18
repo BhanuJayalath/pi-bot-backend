@@ -1,5 +1,6 @@
 import os
 import re
+import json
 import uuid
 import logging
 from typing import List, Tuple, Dict
@@ -13,6 +14,7 @@ from llama_index.vector_stores.pinecone import PineconeVectorStore
 from langchain.docstore.document import Document
 from rank_bm25 import BM25Okapi
 import openai
+from app.send_email import send_email_with_attachment
 
 # Load environment variables
 load_dotenv()
@@ -157,48 +159,61 @@ class VectorStore:
         thread_id: str = None,
         system_prompt: str = "You are a strict document-compliant assistant."
     ) -> str:
-        # Build the document context string
         context = "\n\n".join(
             f"{doc.metadata.get('doc_name', f'Document {i+1}')} (Score: {score:.3f}):\n{doc.page_content}"
             for i, (doc, score) in enumerate(docs)
         )
 
         try:
-            # Compose system message including documents context and instructions
             system_message = {
                 "role": "system",
                 "content": f"{system_prompt}\n\n--- DOCUMENTS ---\n{context}\n\nAnswer strictly based on the documents above."
             }
 
-            # Prepare the messages list starting with system message
             messages = [system_message]
 
-            # Add previous chat history (raw Q&A) if available
             if thread_id:
                 if thread_id not in self.chat_threads:
                     self.chat_threads[thread_id] = []
                 messages.extend(self.chat_threads[thread_id])
 
-            # Add current user query as a separate user message
             current_user_message = {"role": "user", "content": query}
             messages.append(current_user_message)
 
-            # Call OpenAI Chat Completion API
             response = openai.chat.completions.create(
                 model="gpt-4o-mini",
                 messages=messages,
                 temperature=0.3,
                 max_tokens=800,
             )
-            print(messages);
 
-            assistant_message = {"role": "assistant", "content": response.choices[0].message.content.strip()}
+            assistant_message = {
+                "role": "assistant",
+                "content": response.choices[0].message.content.strip()
+            }
 
-            # Save the new exchange to chat history if thread_id is provided
             if thread_id:
                 self.chat_threads[thread_id].append(current_user_message)
                 self.chat_threads[thread_id].append(assistant_message)
 
+            # Check for ".pdf" and extract only the answer from the JSON
+            if ".pdf" in assistant_message["content"]:
+                try:
+                    parsed_json = json.loads(assistant_message["content"])
+                    document_path = os.path.join("resources", "docs", parsed_json.get("doc_name", ""))
+
+                    send_email_with_attachment(
+                        to_email="bhanujayalath2003@gmail.com",
+                        subject="Here's the document",
+                        body="Please find the attached document.",
+                        attachment_path=document_path
+                    )
+                    return parsed_json.get("answer", "")
+                except Exception as e:
+                    logger.error(f"Failed to parse JSON from GPT response: {e}")
+                    return "Sorry, there was a problem processing your response."
+
+            # Default: return the full assistant message
             return assistant_message["content"]
 
         except Exception as e:
