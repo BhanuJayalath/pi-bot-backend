@@ -1,0 +1,16 @@
+
+--- Page 1 | unknown | General ---
+🔸 GPE: Australia
+🔸 GPE: Canada
+🔸 GPE: Japan
+🔸 GPE: USA
+🔸 ORG: Asian Countries
+🔸 ORG: Employment - Romania &
+🔸 ORG: Student Travel Insurance
+🔸 PERSON: Schengen States - 40000 7
+🔸 PERSON: Worldwide
+
+Text:
+1. Worldwide excluding USA, Canada, Australia and Japan - 100000 2. Worldwide including USA, Canada, Australia and Japan - 100000 3. Worldwide excluding USA, Canada, Australia and Japan - 60000 4. Worldwide including USA, Canada, Australia and Japan - 60000 5. Asian Countries excluding Japan - 30000 6. Schengen States - 40000 7. Student Travel Insurance brochure - Student Plan - 16 years and above 8. Employment - Romania & rest of the world
+
+----------------------------------------

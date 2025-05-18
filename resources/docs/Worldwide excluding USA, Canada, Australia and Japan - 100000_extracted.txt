@@ -1,0 +1,24 @@
+
+--- Page 1 | 2006 | General ---
+🔸 GPE: Australia
+🔸 GPE: Canada
+🔸 GPE: Japan
+🔸 GPE: Malaysia
+🔸 GPE: USA
+🔸 GPE: accident/
+🔸 ORG: Accident /
+🔸 ORG: Brighton Place Office Suites
+🔸 ORG: Covered - Loss
+🔸 ORG: Japan Worldwide PLUS Individual / Family Benefits Amounts
+🔸 ORG: Personal Liability
+🔸 ORG: Sum
+🔸 PERSON: Brighton Place
+🔸 PERSON: Jalan Bahasa
+🔸 PERSON: Locating
+🔸 PERSON: Worldwide
+🔸 PERSON: accident/
+
+Text:
+POLICY NUMBER: KMD/T0444/24 Labuan Office Suite No. 22, Brighton Place Office Suites, Brighton Place, Ground Floor No. U0215, Jalan Bahasa, 87000 Labuan FT., Malaysia. License No. BS200651 . Company No. LL05436 Page 16 of 66 SCHEDULE OF BENEFITS - WORLDWIDE PLUS Area of Cover Travel Product Worldwide including USA, Canada, Australia and Japan Worldwide excluding USA, Canada, Australia and Japan Worldwide PLUS Individual / Family Benefits Amounts up to USD Excess Section 1: Personal Assistance Medical, Hospitalization, Pharmaceutical Expenses, and Surgical Expenses Abroad, due to Accident / Sudden Illness including COVID19 until Stabilization Up to 100,000 100 Emergency dental care abroad Up to 300 50 Transport to a properly equipped medical facility/ repatriation in case of accident / sudden illness (medical evacuation & repatriation) Up to 100,000 - Repatriation of mortal remains to the country of residence Up to 50,000 - Emergency return home to the country of residence following death of a close family member Up to cost of return economy ticket - Travel and stay of one immediate family member to stay with the insured in case of accident/ sudden illness (compassionate visit) Up to cost of return economy ticket Per day 100 Max up to 500 - Escort of minor child in case of accident/ sudden illness of the insured Up to 5,000 - Outpatient Visit/Treatment (Emergencies only) Up to 2,500 - Sea and mountain rescue expenses Up to 10,000 - Travel assistance services Covered 24/7 - Section 2: Trip cancellation & Delay Trip cancellation & curtailment abroad Up to 1,000 100 Delayed departure abroad Per hour 30 Max up to 750 6 hours Missed flight connection abroad Per hour 30 Max up to 300 3 hours Section 3: Luggage Assistance Compensation for in-flight loss of checked-in luggage Per bag 150 Max up to 600 - Compensation for delay in the arrival of checked-in luggage abroad Per hour 30 Max up to 750 For necessary items 6 hours Locating and forwarding of delayed checked-in luggage Covered - Loss of credit card abroad Up to 500 - Loss of personal money abroad Up to 500 - Loss of passport, driving license, national identity card abroad Up to 200 - Section 4: Personal Accident Accidental death while abroad Sum insured: 15,000 (insured up to age 18: 2,500) - Permanent total disability 100% of sum insured - Permanent partial disability % of sum insured as per wording scale - Section 5: Personal Liability, Legal Fees and Bail Bond Personal Liability Up to 1,000,000 - Advance of bail bond Up to 10,000 - Legal Assistance Up to 5,000 - Hijack / Kidnap Per Hour 50 Up to 6,000 -
+
+----------------------------------------
