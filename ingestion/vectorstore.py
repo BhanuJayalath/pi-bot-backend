@@ -163,6 +163,7 @@ class VectorStore:
             f"{doc.metadata.get('doc_name', f'Document {i+1}')} (Score: {score:.3f}):\n{doc.page_content}"
             for i, (doc, score) in enumerate(docs)
         )
+        # print(context);
 
         try:
             system_message = {

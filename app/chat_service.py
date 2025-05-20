@@ -6,9 +6,18 @@ from langchain_openai import ChatOpenAI
 from langgraph.graph import StateGraph
 from ingestion.vectorstore import VectorStore
 import uuid
+from langfuse import Langfuse
+
 
 # Load environment variables
 load_dotenv()
+
+langfuse = Langfuse(
+    public_key=os.getenv("LANGFUSE_PUBLIC_KEY"),
+    secret_key=os.getenv("LANGFUSE_SECRET_KEY"),
+    host=os.getenv("LANGFUSE_HOST", "https://cloud.langfuse.com")
+)
+
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 # Validate config
@@ -45,25 +54,36 @@ class ChatService:
         def generate_answer(state: ChatState) -> ChatState:
             question = state["question"].strip()
             thread_id = state.get("thread_id", "default_thread")
-            logger.info(f"🔍 Received question: {question}")
+            trace = langfuse.trace(name="chat-service", user_id=thread_id)
+            span = trace.span(name="generate-answer")
 
-            # Step 1: Retrieve context using hybrid search
+            logger.info(f"🔍 Received question: {question}")
+            
             try:
-                results = vector_store.hybrid_search(question, k=6)
+                results = vector_store.hybrid_search(question, k=20)
                 context = "\n\n".join(
                     f"{i+1}. {doc.page_content}" for i, (doc, _) in enumerate(results)
                 )
                 logger.info(f"📚 Retrieved {len(results)} relevant chunks")
             except Exception as e:
                 logger.error(f"❌ Retrieval error: {e}")
-                return {"question": question, "context": "", "answer": "Failed to retrieve context."}
+                span.update(input=question, output="Failed to retrieve context.")
+                return {
+                    "question": question,
+                    "context": "",
+                    "answer": "Failed to retrieve context.",
+                    "thread_id": thread_id
+                }
 
-            # Step 2: Answer with GPT using system instructions + context
             try:
-                answer = vector_store.gpt_answer_from_chunks(question, results, system_prompt=SYSTEM_PROMPT,thread_id=thread_id)
+                answer = vector_store.gpt_answer_from_chunks(
+                    question, results, system_prompt=SYSTEM_PROMPT, thread_id=thread_id
+                )
+                span.update(input=question + "\n\n" + context, output=answer)
             except Exception as e:
                 logger.error(f"❌ GPT generation error: {e}")
                 answer = "Failed to generate a response at the moment."
+                span.update(input=question + "\n\n" + context, output=answer)
 
             return {
                 "question": question,
@@ -71,6 +91,7 @@ class ChatService:
                 "answer": answer,
                 "thread_id": thread_id
             }
+
 
         # LangGraph setup
         builder = StateGraph(ChatState)
