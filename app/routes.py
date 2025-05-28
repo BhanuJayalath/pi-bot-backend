@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 # Initialize router
 router = APIRouter(
-    prefix="/chat",
+    prefix="/api",
     tags=["Chatbot"]
 )
 
