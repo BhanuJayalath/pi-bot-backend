@@ -33,7 +33,7 @@ logger = logging.getLogger(__name__)
 
 class VectorStore:
     def __init__(self):
-        self.embedding_service = OpenAIEmbeddings()
+        self.embedding_service = OpenAIEmbeddings(model="text-embedding-3-large")
         self.pinecone = Pinecone(api_key=PINECONE_API_KEY)
         self.chat_threads = {}  # key: thread_id, value: list of messages
 
@@ -42,7 +42,7 @@ class VectorStore:
             logger.info(f"Creating Pinecone index: {PINECONE_INDEX_NAME}")
             self.pinecone.create_index(
                 name=PINECONE_INDEX_NAME,
-                dimension=1536,
+                dimension=3072,
                 metric="cosine",
                 spec=ServerlessSpec(cloud="aws", region=PINECONE_REGION)
             )
